@@ -29,39 +29,45 @@ const foodData = {
 };
 
 function applySustainability() {
-  const cards = document.querySelectorAll(".product-card");
+  chrome.storage.sync.get("enabled", (data) => {
+    if (data.enabled === false) return;
 
-  cards.forEach(card => {
-    if (card.querySelector(".sustainable-box")) return;
+    const cards = document.querySelectorAll(".product-card");
 
-    const title = card.querySelector("h3");
-    if (!title) return;
+    cards.forEach(card => {
+      if (card.querySelector(".sustainable-box")) return;
 
-    const foodName = title.innerText.toLowerCase();
-    const data = foodData[foodName];
-    if (!data) return;
+      const title = card.querySelector("h3");
+      if (!title) return;
 
-    const box = document.createElement("div");
-    box.className = "sustainable-box";
-    box.style.border = "2px solid green";
-    box.style.padding = "10px";
-    box.style.marginTop = "10px";
-    box.style.background = "#eaffea";
-    box.style.borderRadius = "8px";
-    box.style.fontSize = "14px";
+      const foodName = title.innerText.toLowerCase();
+      const info = foodData[foodName];
+      if (!info) return;
 
-    let html = `<strong>🌱 Sustainable Recommendation</strong><br>`;
-    html += `Calories: <b>${data.calories} kcal</b><br><br>`;
+      const box = document.createElement("div");
+      box.className = "sustainable-box";
+      box.style.border = "2px solid green";
+      box.style.padding = "10px";
+      box.style.marginTop = "10px";
+      box.style.background = "#eaffea";
+      box.style.borderRadius = "8px";
+      box.style.fontSize = "14px";
 
-    data.better.forEach(b => {
-      html += `➡️ ${b.name} (${b.calories} kcal)<br>`;
+      let html = `<strong>🌱 Sustainable Recommendation</strong><br>`;
+      html += `Calories: <b>${info.calories} kcal</b><br><br>`;
+
+      info.better.forEach(b => {
+        html += `➡️ ${b.name} (${b.calories} kcal)<br>`;
+      });
+
+      box.innerHTML = html;
+      card.appendChild(box);
     });
-
-    box.innerHTML = html;
-    card.appendChild(box);
   });
 }
 
-// 🔁 KEEP CHECKING FOR NEW PRODUCTS
+// Keep checking (because products load dynamically)
 setInterval(applySustainability, 1000);
+
+
 

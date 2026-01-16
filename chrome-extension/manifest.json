@@ -1,15 +1,21 @@
 {
   "manifest_version": 3,
   "name": "Sustainable Choice Filter",
-  "version": "1.0",
-  "description": "Shows sustainable food alternatives on Super Choice website",
+  "version": "1.1",
+  "description": "Enable or disable sustainable recommendations on Super Choice website",
+  "permissions": ["storage"],
   "content_scripts": [
     {
       "matches": ["file:///*"],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
 }
+
+ 
 
 
 
