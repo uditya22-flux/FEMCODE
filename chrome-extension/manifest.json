@@ -6,7 +6,10 @@
   "permissions": ["storage"],
   "content_scripts": [
     {
-      "matches": ["file:///*"],
+      "matches": [
+        "file:///*",
+        "https://uditya22-flux.github.io/*"
+      ],
       "js": ["content.js"]
     }
   ],
@@ -14,6 +17,7 @@
     "default_popup": "popup.html"
   }
 }
+
 
  
 
