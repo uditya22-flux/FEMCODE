@@ -2,12 +2,13 @@
   "manifest_version": 3,
   "name": "Sustainable Choice Filter",
   "version": "1.0",
-  "description": "Shows sustainable food alternatives with calorie comparison",
+  "description": "Shows sustainable food alternatives on Super Choice website",
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["file:///*"],
       "js": ["content.js"]
     }
   ]
 }
+
 
