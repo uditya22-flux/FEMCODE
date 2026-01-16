@@ -1,14 +1,18 @@
 {
   "manifest_version": 3,
   "name": "Sustainable Choice Filter",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Enable or disable sustainable recommendations on Super Choice website",
   "permissions": ["storage"],
+  "host_permissions": [
+    "https://uditya22-flux.github.io/*",
+    "file:///*"
+  ],
   "content_scripts": [
     {
       "matches": [
-        "file:///*",
-        "https://uditya22-flux.github.io/*"
+        "https://uditya22-flux.github.io/*",
+        "file:///*"
       ],
       "js": ["content.js"]
     }
@@ -17,6 +21,7 @@
     "default_popup": "popup.html"
   }
 }
+
 
 
  
