@@ -5,14 +5,14 @@
   "description": "Enable or disable sustainable recommendations on Super Choice website",
   "permissions": ["storage"],
   "host_permissions": [
-    "https://uditya22-flux.github.io/*",
-    "file:///*"
+    "file:///*",
+    "https://uditya22-flux.github.io/*"
   ],
   "content_scripts": [
     {
       "matches": [
-        "https://uditya22-flux.github.io/*",
-        "file:///*"
+        "file:///*",
+        "https://uditya22-flux.github.io/*"
       ],
       "js": ["content.js"]
     }
@@ -21,6 +21,7 @@
     "default_popup": "popup.html"
   }
 }
+
 
 
 
