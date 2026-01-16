@@ -1,36 +1,34 @@
+const foodData = {
+  pizza: {
+    calories: 285,
+    better: [
+      { name: "Protein Bar", calories: 180 },
+      { name: "Granola", calories: 150 }
+    ]
+  },
+  burger: {
+    calories: 295,
+    better: [
+      { name: "Fruit Bar", calories: 120 },
+      { name: "Makhana", calories: 100 }
+    ]
+  },
+  lays: {
+    calories: 160,
+    better: [
+      { name: "Nut Bar", calories: 130 },
+      { name: "Makhana", calories: 100 }
+    ]
+  },
+  kurkure: {
+    calories: 155,
+    better: [
+      { name: "Protein Bar", calories: 180 }
+    ]
+  }
+};
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  const foodData = {
-    pizza: {
-      calories: 285,
-      better: [
-        { name: "Protein Bar", calories: 180 },
-        { name: "Granola", calories: 150 }
-      ]
-    },
-    burger: {
-      calories: 295,
-      better: [
-        { name: "Fruit Bar", calories: 120 },
-        { name: "Makhana", calories: 100 }
-      ]
-    },
-    lays: {
-      calories: 160,
-      better: [
-        { name: "Nut Bar", calories: 130 },
-        { name: "Makhana", calories: 100 }
-      ]
-    },
-    kurkure: {
-      calories: 155,
-      better: [
-        { name: "Protein Bar", calories: 180 }
-      ]
-    }
-  };
-
+function applySustainability() {
   const cards = document.querySelectorAll(".product-card");
 
   cards.forEach(card => {
@@ -62,5 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
     box.innerHTML = html;
     card.appendChild(box);
   });
+}
 
-});
+// 🔁 KEEP CHECKING FOR NEW PRODUCTS
+setInterval(applySustainability, 1000);
+
