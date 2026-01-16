@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Super Choice</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Super Choice</h1>
+    <div class="dropdown">
+      <label for="categorySelect">Choose Category:</label>
+      <select id="categorySelect">
+        <option value="">-- Select --</option>
+        <option value="food">Food</option>
+        <option value="clothing">Clothing</option>
+        <option value="electronics">Electronics</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="section-title">Featured Products</h2>
+    <div id="productContainer" class="product-grid">
+      <p class="placeholder">Select a category to view products</p>
+    </div>
+  </main>
+
+  <script src="content.js"></script>
+</body>
+</html>
