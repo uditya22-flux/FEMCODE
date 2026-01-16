@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const foodData = {
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { name: "Makhana", calories: 100 }
       ]
     },
-    kurkura: {
+    kurkure: {
       calories: 155,
       better: [
         { name: "Protein Bar", calories: 180 }
@@ -30,16 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const items = document.querySelectorAll(".food-item");
-  if (!items.length) return;
+  const cards = document.querySelectorAll(".product-card");
 
-  items.forEach(item => {
-    if (item.querySelector(".sustainable-box")) return;
+  cards.forEach(card => {
+    if (card.querySelector(".sustainable-box")) return;
 
-    const foodName = item.dataset.food;
-    if (!foodData[foodName]) return;
+    const title = card.querySelector("h3");
+    if (!title) return;
 
+    const foodName = title.innerText.toLowerCase();
     const data = foodData[foodName];
+    if (!data) return;
 
     const box = document.createElement("div");
     box.className = "sustainable-box";
@@ -48,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     box.style.marginTop = "10px";
     box.style.background = "#eaffea";
     box.style.borderRadius = "8px";
+    box.style.fontSize = "14px";
 
     let html = `<strong>🌱 Sustainable Recommendation</strong><br>`;
     html += `Calories: <b>${data.calories} kcal</b><br><br>`;
@@ -57,9 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     box.innerHTML = html;
-    item.appendChild(box);
+    card.appendChild(box);
   });
 
 });
-
-
