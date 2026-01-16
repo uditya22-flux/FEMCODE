@@ -4,36 +4,36 @@ document.addEventListener("DOMContentLoaded", () => {
     pizza: {
       calories: 285,
       better: [
-        { name: "Protein Bar", calories: 180, link: "#protein-bar" },
-        { name: "Granola", calories: 150, link: "#granola" }
+        { name: "Protein Bar", calories: 180 },
+        { name: "Granola", calories: 150 }
       ]
     },
     burger: {
       calories: 295,
       better: [
-        { name: "Fruit Bar", calories: 120, link: "#fruit-bar" },
-        { name: "Makhana", calories: 100, link: "#makhana" }
+        { name: "Fruit Bar", calories: 120 },
+        { name: "Makhana", calories: 100 }
       ]
     },
     lays: {
       calories: 160,
       better: [
-        { name: "Nut Bar", calories: 130, link: "#nut-bar" },
-        { name: "Makhana", calories: 100, link: "#makhana" }
+        { name: "Nut Bar", calories: 130 },
+        { name: "Makhana", calories: 100 }
       ]
     },
     kurkura: {
       calories: 155,
       better: [
-        { name: "Protein Bar", calories: 180, link: "#protein-bar" }
+        { name: "Protein Bar", calories: 180 }
       ]
     }
   };
 
   const items = document.querySelectorAll(".food-item");
+  if (!items.length) return;
 
   items.forEach(item => {
-    // prevent duplicate boxes
     if (item.querySelector(".sustainable-box")) return;
 
     const foodName = item.dataset.food;
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     html += `Calories: <b>${data.calories} kcal</b><br><br>`;
 
     data.better.forEach(b => {
-      html += `➡️ <a href="${b.link}">${b.name}</a> (${b.calories} kcal)<br>`;
+      html += `➡️ ${b.name} (${b.calories} kcal)<br>`;
     });
 
     box.innerHTML = html;
@@ -61,4 +61,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
 
